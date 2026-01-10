@@ -40,20 +40,8 @@ body {
   align-items: center;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
 .logo-img {
   height: 56px;
-}
-
-.brand h1 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #1f8f6b;
 }
 
 .nav-links {
@@ -67,6 +55,7 @@ body {
   color: #e6e6e6;
   position: relative;
   padding-bottom: 4px;
+  text-decoration: none;
 }
 
 .nav-links a:hover,
@@ -122,17 +111,10 @@ body {
   transform: translate(-50%, -50%);
   max-width: 760px;
   text-align: center;
-  padding: 25px 30px;
+  padding: 40px 50px;
   background: rgba(0,0,0,0.45);
   border-radius: 16px;
-}
-
-.hero-tagline {
-  color: #1f8f6b;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
+  backdrop-filter: blur(3px);
 }
 
 .hero-content h1 {
@@ -148,6 +130,9 @@ body {
   margin-bottom: 24px;
 }
 
+/* =====================
+   BUTTONS
+===================== */
 .btn-primary {
   display: inline-block;
   padding: 14px 34px;
@@ -165,7 +150,7 @@ body {
 }
 
 /* =====================
-   ABOUT
+   ABOUT / EXPERIENCE
 ===================== */
 .about {
   position: relative;
@@ -176,17 +161,11 @@ body {
   color: #e6e6e6;
 }
 
-.about-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  border-radius: 12px;
-}
-
 .about-text-box {
   position: relative;
   z-index: 2;
   padding: 30px;
+  backdrop-filter: blur(3px);
 }
 
 .about-text-box h2 {
@@ -198,15 +177,15 @@ body {
 .about-text-box p {
   font-size: 1.05rem;
   line-height: 1.7;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 /* =====================
-   HIGHLIGHTS
+   HIGHLIGHTS / EVENTS
 ===================== */
 .highlights {
   max-width: 1200px;
-  margin: auto;
+  margin: 80px auto 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 32px;
@@ -224,18 +203,19 @@ body {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  display: block;
+  object-position: center;
 }
 
 .highlight-card h3 {
   color: #1f8f6b;
-  margin: 16px 0 8px 0;
+  margin: 16px 0 12px 0;
 }
 
 .highlight-card p {
   color: #cccccc;
   padding: 0 16px 20px 16px;
   line-height: 1.6;
+  margin-bottom: 24px;
 }
 
 .highlight-card:hover {
@@ -249,9 +229,9 @@ body {
 .location-cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 32px;
   justify-content: center;
-  margin-bottom: 32px;
+  margin: 40px 0;
 }
 
 .location-card {
@@ -270,6 +250,7 @@ body {
 
 .location-card p {
   color: #e6e6e6;
+  margin-bottom: 12px;
 }
 
 /* =====================
@@ -283,7 +264,7 @@ body {
 }
 
 /* =====================
-   CTA
+   CTA / INSTAGRAM
 ===================== */
 .cta {
   text-align: center;
@@ -292,19 +273,44 @@ body {
 
 .cta h2 {
   color: #1f8f6b;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .cta p {
-  margin-bottom: 32px;
+  margin-bottom: 36px;
   color: #d8d8d8;
+}
+
+.instagram-preview {
+  text-align: center;
+}
+
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin: 30px 0;
+}
+
+.ig-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+.ig-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
 }
 
 /* =====================
    FOOTER
 ===================== */
 .footer {
-  padding: 40px 24px;
+  padding: 60px 24px;
   text-align: center;
   background: #050807;
   font-size: 0.9rem;
@@ -317,131 +323,7 @@ body {
 }
 
 /* =====================
-   RESPONSIVE
-===================== */
-@media (max-width: 900px) {
-  .nav-links {
-    gap: 16px;
-  }
-
-  .hero-content {
-    max-width: 90%;
-  }
-
-  .highlight-card img {
-    height: 150px;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-writeup {
-    font-size: 1rem;
-  }
-
-  .highlight-card img {
-    height: 120px;
-  }
-
-  .location-cards {
-    flex-direction: column;
-    gap: 18px;
-  }
-}
-
-/* =====================
-   GLOBAL SPACING ADJUSTMENTS
-===================== */
-
-/* Add breathing room between main sections */
-section {
-  margin-top: 80px;
-  margin-bottom: 80px;
-}
-
-/* Add extra spacing in hero content box */
-.hero-content {
-  padding: 40px 50px; /* more padding so text isn't cramped */
-}
-
-/* Ensure text boxes (about, hero, etc.) stand out over images */
-.hero-content, 
-.about-text-box {
-  backdrop-filter: blur(3px); /* subtle blur for readability */
-}
-
-/* About section spacing */
-.about-text-box p {
-  margin-bottom: 24px; /* extra spacing between paragraphs */
-}
-
-/* Highlights cards vertical spacing */
-.highlight-card h3 {
-  margin-top: 16px;
-  margin-bottom: 12px;
-}
-
-.highlight-card p {
-  margin-bottom: 24px;
-}
-
-/* Location cards spacing */
-.location-cards {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  gap: 32px;
-}
-
-.location-card p {
-  margin-bottom: 12px;
-}
-
-/* CTA spacing */
-.cta h2 {
-  margin-bottom: 28px;
-}
-
-.cta p {
-  margin-bottom: 36px;
-}
-
-/* Footer spacing */
-.footer {
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
-
-/* Maintain highlights images as static on mobile */
-.highlight-card img {
-  object-position: center;
-  object-fit: cover;
-  pointer-events: none; /* prevent accidental interactions on touch */
-}
-/* =====================
-   SECTION SPACING SYSTEM
-===================== */
-section {
-  margin-bottom: 120px; /* creates luxury double-spacing */
-}
-
-@media (max-width: 600px) {
-  section {
-    margin-bottom: 90px;
-  }
-}
-.highlights {
-  margin-top: 80px;
-}
-
-.gallery {
-  margin-top: 120px;
-}
-
-/* =====================
-   IMAGE LIGHTBOX
+   LIGHTBOX
 ===================== */
 .lightbox {
   position: fixed;
@@ -485,28 +367,46 @@ section {
   opacity: 0.7;
 }
 
-.instagram-preview {
-  text-align: center;
+/* =====================
+   GLOBAL SECTION SPACING
+===================== */
+section {
+  margin-bottom: 120px;
 }
 
-.ig-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 16px;
-  margin: 30px 0;
+@media (max-width: 900px) {
+  .nav-links {
+    gap: 16px;
+  }
+
+  .hero-content {
+    max-width: 90%;
+  }
+
+  .highlight-card img {
+    height: 150px;
+  }
 }
 
-.ig-grid img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 14px;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-}
+@media (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
 
-.ig-grid img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-}
+  .hero-writeup {
+    font-size: 1rem;
+  }
 
+  section {
+    margin-bottom: 90px;
+  }
+
+  .highlight-card img {
+    height: 120px;
+  }
+
+  .location-cards {
+    flex-direction: column;
+    gap: 18px;
+  }
+}
