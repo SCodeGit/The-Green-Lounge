@@ -1,72 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Contact | The Greens Lounge</title>
-<meta name="description" content="Contact The Greens Lounge in Tema for reservations, inquiries, and events. Fast and easy WhatsApp booking available.">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<title>Contact | The Greens Lounge</title>
+<meta name="description" content="Contact The Greens Lounge in Tema for reservations, inquiries, and events. Fast and easy WhatsApp booking available.">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="images/logo.jpg">
+
 <style>
-/* ===== GLOBAL RESET ===== */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:"Segoe UI", sans-serif; background:#0b0f0d; color:#e6e6e6; line-height:1.7; }
+:root{
+  --black:#000;
+  --dark:#0e0e0e;
+  --white:#fff;
+  --green:#1f8f6b;
+  --overlay:rgba(0,0,0,0.72);
+}
 
-/* ===== HEADER & NAV ===== */
-.site-header { position:fixed; width:100%; top:0; z-index:1000; background:rgba(11,15,13,0.95); backdrop-filter:blur(10px); padding:10px 0; }
-.nav { max-width:1200px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:0 24px; }
-.logo-img { height:56px; }
-.nav-links { display:flex; gap:28px; list-style:none; }
-.nav-links a { color:#e6e6e6; text-decoration:none; font-weight:600; position:relative; }
-.nav-links a.active, .nav-links a:hover { color:#1f8f6b; }
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:var(--black);
+  color:var(--white);
+}
 
-/* ===== HERO ===== */
-.hero { position:relative; height:60vh; display:flex; align-items:center; justify-content:center; overflow:hidden; padding-top:64px; }
-.hero-img { width:100%; height:100%; object-fit:cover; }
-.hero-overlay { position:absolute; inset:0; background:rgba(0,0,0,0.55); }
-.hero-content { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; padding:25px 30px; border-radius:16px; max-width:700px; background:rgba(0,0,0,0.45);}
-.hero-content h1 { font-size:clamp(2rem,5vw,3rem); margin-bottom:16px; }
-.hero-writeup { font-size:1.1rem; line-height:1.7; }
+/* ================= HEADER ================= */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:var(--black);
+  border-bottom:2px solid var(--green);
+  padding:12px 0;
+  text-align:center;
+}
 
-/* ===== SECTIONS ===== */
-.about, .fade-in { padding:80px 24px; max-width:900px; margin:auto; text-align:left; }
-.about h2 { font-size:2rem; color:#1f8f6b; margin-bottom:20px; }
-.about p { font-size:1rem; line-height:1.7; margin-bottom:16px; }
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:var(--white);
+}
 
-/* ===== LOCATION LIST ===== */
-.location-list { list-style:none; padding-left:0; margin-bottom:24px; }
-.location-list li { margin-bottom:14px; position:relative; padding-left:24px; line-height:1.6; }
-.location-list li::before { content:"•"; position:absolute; left:0; color:#1f8f6b; font-weight:bold; }
+.brand img{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  border:2px solid var(--green);
+}
 
-/* ===== BUTTON ===== */
-.btn-primary { display:inline-block; padding:14px 34px; background:linear-gradient(135deg,#1f8f6b,#0c5f47); color:#fff; border-radius:40px; font-weight:600; letter-spacing:0.5px; text-decoration:none; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.btn-primary:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(31,143,107,0.35); }
+.brand span{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;
+  font-weight:700;
+}
 
-/* ===== MAP ===== */
-iframe { width:100%; height:360px; border:none; border-radius:12px; margin-top:30px; }
+/* Nav */
+#page-nav ul{
+  list-style:none;
+  margin:12px 0 0;
+  padding:0;
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  flex-wrap:wrap;
+}
 
-/* ===== FOOTER ===== */
-.footer { text-align:center; padding:60px 24px; background:#050807; font-size:0.9rem; color:#9a9a9a; }
+#page-nav a{
+  color:var(--white);
+  text-decoration:none;
+  font-weight:600;
+}
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:900px){.nav-links{gap:16px;}}
-@media(max-width:600px){
-  .hero-content{padding:20px; max-width:90%;}
-  .hero-content h1{font-size:2rem;}
-  .hero-writeup{font-size:1rem;}
+#page-nav a:hover, #page-nav a.active{
+  color:var(--green);
+}
+
+/* ================= HERO ================= */
+.hero{
+  position:relative;
+  background:
+    linear-gradient(var(--overlay), var(--overlay)),
+    url('images/contact-hero.jpg') center/cover no-repeat;
+  text-align:center;
+  padding:100px 20px;
+}
+
+.hero-text-box{
+  background: rgba(0,0,0,0.45);
+  padding:25px 30px;
+  border-radius:16px;
+  max-width:700px;
+  margin:auto;
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;
+  margin-bottom:12px;
+}
+
+.hero p{
+  color:#ddd;
+  font-size:1.05rem;
+}
+
+/* ================= SECTIONS ================= */
+.section{
+  padding:70px 5%;
+}
+
+.section h2{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.section p{
+  max-width:720px;
+  margin:auto;
+  line-height:1.6;
+  color:#ccc;
+  text-align:center;
+}
+
+/* Location / Accessibility Lists */
+.location-list{
+  max-width:600px;
+  margin:20px auto 30px;
+  padding:0;
+  list-style:none;
+}
+
+.location-list li{
+  position:relative;
+  padding-left:24px;
+  margin-bottom:14px;
+}
+
+.location-list li::before{
+  content:"•";
+  position:absolute;
+  left:0;
+  color:var(--green);
+  font-weight:bold;
+}
+
+/* WhatsApp Button */
+.btn-primary{
+  display:inline-block;
+  padding:14px 36px;
+  background:linear-gradient(135deg,var(--green),#0c5f47);
+  color:#fff;
+  border-radius:40px;
+  font-weight:600;
+  text-decoration:none;
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(31,143,107,0.35);
+}
+
+/* Map */
+iframe{
+  width:100%;
+  height:360px;
+  margin-top:30px;
+  border-radius:12px;
+}
+
+/* Footer */
+.site-footer{
+  text-align:center;
+  padding:50px 20px;
+  border-top:2px solid var(--green);
+  background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
+    url('images/about-bg.jpg') center/cover;
+}
+
+.site-footer a{
+  color:var(--green);
+  text-decoration:none;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ===== HEADER ===== -->
 <header class="site-header">
-  <nav class="nav">
-    <div class="brand">
-      <img src="images/logo.jpg" alt="The Greens Lounge Logo" class="logo-img">
-      <h1>The Greens Lounge</h1>
-    </div>
-    <ul class="nav-links">
+  <a href="index.html" class="brand">
+    <img src="images/logo.jpg" alt="The Greens Lounge Logo">
+    <span>The Greens Lounge</span>
+  </a>
+
+  <nav id="page-nav">
+    <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="vibes.html">Vibes</a></li>
       <li><a href="menu.html">Drinks & Tables</a></li>
@@ -75,20 +213,18 @@ iframe { width:100%; height:360px; border:none; border-radius:12px; margin-top:3
   </nav>
 </header>
 
-<!-- ===== HERO ===== -->
+<!-- Hero -->
 <section class="hero">
-  <img src="images/contact-hero.jpg" alt="Contact The Greens Lounge" class="hero-img">
-  <div class="hero-overlay"></div>
-  <div class="hero-content fade-in">
+  <div class="hero-text-box">
     <h1>Contact Us</h1>
-    <p class="hero-writeup">Have a question or want to reserve a table? Reach out directly via WhatsApp or phone.</p>
+    <p>Have a question or want to reserve a table? Reach out directly via WhatsApp or phone.</p>
   </div>
 </section>
 
-<!-- ===== CONTACT DETAILS ===== -->
-<section class="about fade-in">
+<!-- Contact Info -->
+<section class="section">
   <h2>Reach The Greens Lounge</h2>
-  <p>Our team is ready to assist with reservations, event inquiries, and general questions. Contact us directly via WhatsApp or phone, or visit us at Sixth Avenue, Tema.</p>
+  <p>Our team is ready to assist with reservations, event inquiries, and general questions.</p>
   <ul class="location-list">
     <li>Address: Sixth Ave, Tema, Greater Accra Region, Ghana</li>
     <li>Phone: +233 54 030 9726</li>
@@ -97,14 +233,19 @@ iframe { width:100%; height:360px; border:none; border-radius:12px; margin-top:3
   <a class="btn-primary" href="https://wa.me/233540309726?text=Hello%20The%20Greens%20Lounge,%20I%20want%20to%20make%20an%20inquiry.">Chat via WhatsApp</a>
 </section>
 
-<!-- ===== MAP ===== -->
-<section class="fade-in">
+<!-- Map -->
+<section class="section">
   <h2>Find Us</h2>
-  <iframe src="https://maps.google.com/maps?q=The%20Greens%20Lounge%20Tema&t=&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <iframe
+    src="https://maps.google.com/maps?q=The%20Greens%20Lounge%20Tema&t=&z=15&output=embed"
+    allowfullscreen
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
 </section>
 
-<!-- ===== ACCESSIBILITY & SERVICES ===== -->
-<section class="about fade-in">
+<!-- Accessibility & Services -->
+<section class="section">
   <h2>Accessibility & Services</h2>
   <ul class="location-list">
     <li>Wheelchair-accessible entrance, seating, and restroom</li>
@@ -114,19 +255,14 @@ iframe { width:100%; height:360px; border:none; border-radius:12px; margin-top:3
   </ul>
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-  <p>© 2026 The Greens Lounge • Sixth Avenue, Tema</p>
+<!-- Footer -->
+<footer class="site-footer">
+  <p>© <span id="year"></span> The Greens Lounge • Sixth Avenue, Tema</p>
+  <p>Designed by <a href="https://scodegit.github.io/scode.git.io/" target="_blank">SCode Studio</a></p>
 </footer>
 
 <script>
-// ===== SCROLL FADE-IN =====
-document.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add("visible"); });
-  }, { threshold: 0.15 });
-  document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
-});
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
