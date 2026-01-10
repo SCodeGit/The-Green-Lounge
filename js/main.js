@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // ===============================
 (() => {
   const lightbox = document.getElementById("lightbox");
-  if (!lightbox) return; // do nothing if no lightbox in HTML
+  if (!lightbox) return; // skip if no lightbox
+
   const lightboxImg = document.getElementById("lightbox-img");
   const closeBtn = lightbox.querySelector(".lightbox-close");
 
@@ -32,12 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
       img.addEventListener("click", () => {
         lightboxImg.src = img.src;
         lightbox.classList.add("active");
-        document.body.style.overflow = "hidden"; // prevent background scroll
+        document.body.style.overflow = "hidden";
       });
     }
   });
 
-  // Close lightbox
+  // Close lightbox function
   const closeLightbox = () => {
     lightbox.classList.remove("active");
     document.body.style.overflow = "auto";
