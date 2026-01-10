@@ -1,0 +1,511 @@
+/* =====================
+   GLOBAL RESET & BASE
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background-color: #0b0f0d;
+  color: #e6e6e6;
+  line-height: 1.7;
+}
+
+/* =====================
+   HEADER & NAV
+===================== */
+.site-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: rgba(11, 15, 13, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 10px 0;
+}
+
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  height: 56px;
+}
+
+.brand h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1f8f6b;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  font-weight: 600;
+  color: #e6e6e6;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #1f8f6b;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #1f8f6b;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* =====================
+   HERO
+===================== */
+.hero {
+  position: relative;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 64px;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 760px;
+  text-align: center;
+  padding: 25px 30px;
+  background: rgba(0,0,0,0.45);
+  border-radius: 16px;
+}
+
+.hero-tagline {
+  color: #1f8f6b;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.8rem, 6vw, 4rem);
+  color: #fff;
+  margin-bottom: 18px;
+}
+
+.hero-writeup {
+  color: #e6e6e6;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 14px 34px;
+  background: linear-gradient(135deg, #1f8f6b, #0c5f47);
+  color: #fff;
+  border-radius: 40px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(31, 143, 107, 0.35);
+}
+
+/* =====================
+   ABOUT
+===================== */
+.about {
+  position: relative;
+  padding: 100px 24px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  color: #e6e6e6;
+}
+
+.about-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  border-radius: 12px;
+}
+
+.about-text-box {
+  position: relative;
+  z-index: 2;
+  padding: 30px;
+}
+
+.about-text-box h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #1f8f6b;
+}
+
+.about-text-box p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+/* =====================
+   HIGHLIGHTS
+===================== */
+.highlights {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+.highlight-card {
+  background: #121815;
+  border-radius: 18px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.highlight-card h3 {
+  color: #1f8f6b;
+  margin: 16px 0 8px 0;
+}
+
+.highlight-card p {
+  color: #cccccc;
+  padding: 0 16px 20px 16px;
+  line-height: 1.6;
+}
+
+.highlight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(31, 143, 107, 0.45);
+}
+
+/* =====================
+   LOCATION CARDS
+===================== */
+.location-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.location-card {
+  background: #121815;
+  padding: 24px;
+  border-radius: 16px;
+  flex: 1 1 220px;
+  text-align: center;
+  min-width: 220px;
+}
+
+.location-card h3 {
+  color: #1f8f6b;
+  margin-bottom: 12px;
+}
+
+.location-card p {
+  color: #e6e6e6;
+}
+
+/* =====================
+   MAP
+===================== */
+.map iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  border-radius: 14px;
+}
+
+/* =====================
+   CTA
+===================== */
+.cta {
+  text-align: center;
+  padding: 80px 24px;
+}
+
+.cta h2 {
+  color: #1f8f6b;
+  margin-bottom: 24px;
+}
+
+.cta p {
+  margin-bottom: 32px;
+  color: #d8d8d8;
+}
+
+/* =====================
+   FOOTER
+===================== */
+.footer {
+  padding: 40px 24px;
+  text-align: center;
+  background: #050807;
+  font-size: 0.9rem;
+  color: #9a9a9a;
+}
+
+.footer a {
+  color: #1f8f6b;
+  text-decoration: none;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 900px) {
+  .nav-links {
+    gap: 16px;
+  }
+
+  .hero-content {
+    max-width: 90%;
+  }
+
+  .highlight-card img {
+    height: 150px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-writeup {
+    font-size: 1rem;
+  }
+
+  .highlight-card img {
+    height: 120px;
+  }
+
+  .location-cards {
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+
+/* =====================
+   GLOBAL SPACING ADJUSTMENTS
+===================== */
+
+/* Add breathing room between main sections */
+section {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+/* Add extra spacing in hero content box */
+.hero-content {
+  padding: 40px 50px; /* more padding so text isn't cramped */
+}
+
+/* Ensure text boxes (about, hero, etc.) stand out over images */
+.hero-content, 
+.about-text-box {
+  backdrop-filter: blur(3px); /* subtle blur for readability */
+}
+
+/* About section spacing */
+.about-text-box p {
+  margin-bottom: 24px; /* extra spacing between paragraphs */
+}
+
+/* Highlights cards vertical spacing */
+.highlight-card h3 {
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.highlight-card p {
+  margin-bottom: 24px;
+}
+
+/* Location cards spacing */
+.location-cards {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  gap: 32px;
+}
+
+.location-card p {
+  margin-bottom: 12px;
+}
+
+/* CTA spacing */
+.cta h2 {
+  margin-bottom: 28px;
+}
+
+.cta p {
+  margin-bottom: 36px;
+}
+
+/* Footer spacing */
+.footer {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+/* Maintain highlights images as static on mobile */
+.highlight-card img {
+  object-position: center;
+  object-fit: cover;
+  pointer-events: none; /* prevent accidental interactions on touch */
+}
+/* =====================
+   SECTION SPACING SYSTEM
+===================== */
+section {
+  margin-bottom: 120px; /* creates luxury double-spacing */
+}
+
+@media (max-width: 600px) {
+  section {
+    margin-bottom: 90px;
+  }
+}
+.highlights {
+  margin-top: 80px;
+}
+
+.gallery {
+  margin-top: 120px;
+}
+
+/* =====================
+   IMAGE LIGHTBOX
+===================== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox img {
+  max-width: 92%;
+  max-height: 85%;
+  border-radius: 14px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-size: 2.2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 300;
+  transition: opacity 0.2s ease;
+}
+
+.lightbox-close:hover {
+  opacity: 0.7;
+}
+
+.instagram-preview {
+  text-align: center;
+}
+
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin: 30px 0;
+}
+
+.ig-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+.ig-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
