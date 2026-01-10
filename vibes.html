@@ -1,150 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Vibes | The Greens Lounge</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="description" content="Experience the vibes at The Greens Lounge — music, live events, ambience, and unforgettable nights in Tema.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vibes | The Greens Lounge</title>
+<meta name="description" content="Discover the vibes at The Greens Lounge — music, ambience, curated nights, and refined nightlife in Tema.">
 
-  <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/main.js"></script>
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- FAVICON -->
+<link rel="icon" type="image/png" href="images/logo.jpg">
+
+<style>
+:root{
+  --black:#000;
+  --dark:#0e0e0e;
+  --white:#fff;
+  --green:#1f8f6b;
+  --overlay:rgba(0,0,0,0.72);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:var(--black);
+  color:var(--white);
+}
+
+/* ================= HEADER ================= */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:var(--black);
+  border-bottom:2px solid var(--green);
+  padding:10px 0;
+  text-align:center;
+}
+
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:var(--white);
+}
+
+.brand img{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  border:2px solid var(--green);
+}
+
+.brand span{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;
+  font-weight:700;
+}
+
+/* ================= NAV ================= */
+#page-nav ul{
+  list-style:none;
+  margin:12px 0 0;
+  padding:0;
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  flex-wrap:wrap;
+}
+
+#page-nav a{
+  color:var(--white);
+  text-decoration:none;
+  font-weight:600;
+}
+
+#page-nav a:hover{
+  color:var(--green);
+}
+
+/* ================= HERO ================= */
+.hero{
+  background:
+    linear-gradient(var(--overlay),var(--overlay)),
+    url('images/vibes-hero.jpg') center/cover no-repeat;
+  text-align:center;
+  padding:120px 20px;
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;
+}
+
+.hero p{
+  max-width:640px;
+  margin:auto;
+  color:#ddd;
+  font-size:1.05rem;
+}
+
+/* ================= SECTIONS ================= */
+.section{
+  padding:70px 5%;
+}
+
+.section-head{
+  text-align:center;
+  max-width:720px;
+  margin:0 auto 50px;
+}
+
+.section-head h2{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;
+}
+
+.section-head p{
+  color:#cfcfcf;
+}
+
+/* ================= CARDS ================= */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+
+.card{
+  border:2px solid var(--green);
+  border-radius:14px;
+  padding:28px 20px;
+  text-align:center;
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:10px;
+  margin-bottom:16px;
+}
+
+.card h3{
+  color:var(--green);
+}
+
+/* ================= FEATURE IMAGE ================= */
+.feature-img{
+  width:180px;
+  border-radius:50%;
+  border:3px solid var(--green);
+  margin:25px auto;
+  display:block;
+}
+
+@media(max-width:600px){
+  .feature-img{width:130px}
+}
+
+/* ================= CTA ================= */
+.cta{
+  background:var(--dark);
+  text-align:center;
+  padding:80px 20px;
+}
+
+.cta a{
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 36px;
+  background:var(--green);
+  color:#000;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* ================= FOOTER ================= */
+.site-footer{
+  text-align:center;
+  padding:50px 20px;
+  border-top:2px solid var(--green);
+  background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
+    url('images/about-bg.jpg') center/cover;
+}
+
+.site-footer a{
+  color:var(--green);
+  text-decoration:none;
+}
+</style>
 </head>
-<!-- =====================
-   IMAGE LIGHTBOX
-===================== -->
-
-<div id="lightbox" class="lightbox">
-  <button class="lightbox-close" aria-label="Close image">&times;</button>
-  <img id="lightbox-img" src="" alt="">
-</div>
 
 <body>
 
-<!-- ================= HEADER ================= -->
 <header class="site-header">
-  <nav class="nav">
-    <div class="brand">
-      <img src="images/logo.jpg" alt="The Greens Lounge" class="logo-img">
-      <h1>The Greens Lounge</h1>
-    </div>
+  <a class="brand" href="index.html">
+    <img src="images/logo.jpg" alt="The Greens Lounge Logo">
+    <span>The Greens Lounge</span>
+  </a>
 
-    <ul class="nav-links">
+  <nav id="page-nav">
+    <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="vibes.html" class="active">Vibes</a></li>
+      <li><a href="vibes.html">Vibes</a></li>
       <li><a href="menu.html">Drinks & Tables</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 </header>
 
-<!-- ================= HERO ================= -->
-<section class="hero" style="height:70vh">
-  <img src="images/vibes-hero.jpg" alt="Nightlife at The Greens Lounge" class="hero-img">
-  <div class="hero-overlay"></div>
-
-  <div class="hero-content fade-in">
-    <h1>The Vibe</h1>
-    <p class="hero-writeup">
-      Where sound, atmosphere, and energy come together.
-    </p>
-  </div>
+<!-- HERO -->
+<section class="hero">
+  <h1>The Vibe</h1>
+  <p>Where sound, atmosphere, and energy meet refined nightlife.</p>
 </section>
 
-<!-- ================= EXPERIENCE ================= -->
-<section class="about fade-in">
-  <h2>The Experience</h2>
+<!-- EXPERIENCE -->
+<section class="section">
+  <div class="section-head">
+    <h2>The Greens Experience</h2>
+    <p>A smooth transition from calm evenings to vibrant nights.</p>
+  </div>
 
-  <p>
-    The Greens Lounge is defined by its atmosphere. Designed with an open and spacious
-    layout, the venue offers a relaxed elegance that naturally transitions into vibrant
-    nightlife as the evening progresses.
-  </p>
+  <img src="images/gallery-dj.jpg" class="feature-img" alt="Greens Lounge Vibes">
 
-  <p>
-    Music plays a central role in shaping the experience. From smooth Afrobeats and
-    contemporary DJ sets to live performances and special guest appearances, every night
-    carries its own rhythm.
-  </p>
-
-  <p>
-    Whether you’re enjoying an intimate evening or celebrating with a group, the energy
-    remains refined, immersive, and unmistakably Greens.
+  <p style="max-width:720px;margin:auto;text-align:center;">
+    The Greens Lounge is defined by atmosphere. Open, spacious, and immersive,
+    the venue balances elegance and energy. Music anchors the experience — from
+    smooth Afrobeats to DJ nights and live performances that shape every evening.
   </p>
 </section>
 
-<!-- ================= EVENTS ================= -->
-<section class="highlights fade-in">
-  <div class="highlight-card">
-    <img src="images/dj.jpg" alt="DJ Nights">
-    <h3>DJ Nights</h3>
-    <p>
-      Curated DJ sessions featuring Afrobeats, Amapiano, Hip-Hop, and party classics.
-    </p>
-  </div>
+<!-- EVENTS -->
+<section class="section">
+  <div class="cards">
+    <article class="card">
+      <img src="images/dj.jpg" alt="DJ Nights">
+      <h3>DJ Nights</h3>
+      <p>Afrobeats, Amapiano, Hip-Hop, and curated party classics.</p>
+    </article>
 
-  <div class="highlight-card">
-    <img src="images/live.jpg" alt="Live Performances">
-    <h3>Live Performances</h3>
-    <p>
-      Live music showcases and artist appearances that elevate select nights.
-    </p>
-  </div>
+    <article class="card">
+      <img src="images/live.jpg" alt="Live Performances">
+      <h3>Live Performances</h3>
+      <p>Guest artists and live sessions that elevate select nights.</p>
+    </article>
 
-  <div class="highlight-card">
-    <img src="images/themed.jpg" alt="Themed Evenings">
-    <h3>Themed Evenings</h3>
-    <p>
-      Carefully planned themed nights designed to keep the energy alive throughout the week.
-    </p>
+    <article class="card">
+      <img src="images/themed.jpg" alt="Themed Nights">
+      <h3>Themed Evenings</h3>
+      <p>Carefully planned nights that keep the energy fresh and exciting.</p>
+    </article>
   </div>
 </section>
 
-<!-- ================= GALLERY ================= -->
-<section class="gallery fade-in">
-  <h2>Gallery</h2>
+<!-- GALLERY -->
+<section class="section">
+  <div class="section-head">
+    <h2>Gallery</h2>
+    <p>A visual glimpse into nights at The Greens Lounge.</p>
+  </div>
 
-  <p style="max-width:700px;margin-bottom:40px">
-    A visual glimpse into the nights, moments, and atmosphere that define
-    The Greens Lounge.
-  </p>
-
-  <div class="highlights">
-    <div class="highlight-card">
-      <img src="images/gallery-crowd.jpg" alt="Crowd & nightlife energy">
+  <div class="cards">
+    <article class="card">
+      <img src="images/gallery-crowd.jpg" alt="Crowd moments">
       <p>High-energy nights & crowd moments</p>
-    </div>
+    </article>
 
-    <div class="highlight-card">
-      <img src="images/gallery-drinks.jpg" alt="Cocktails & bar">
+    <article class="card">
+      <img src="images/gallery-drinks.jpg" alt="Drinks">
       <p>Crafted cocktails & premium drinks</p>
-    </div>
+    </article>
 
-    <div class="highlight-card">
-      <img src="images/gallery-dj.jpg" alt="DJ & music">
+    <article class="card">
+      <img src="images/gallery-dj.jpg" alt="DJ sets">
       <p>DJ sets & live music sessions</p>
-    </div>
+    </article>
   </div>
 </section>
 
-<!-- ================= INSTAGRAM PREVIEW ================= -->
-<section class="cta fade-in instagram-preview">
-
+<!-- CTA -->
+<section class="cta">
   <h2>Follow the Vibe</h2>
-  <p>
-
-  <a href="https://www.instagram.com/greens_lounge/" target="_blank" class="btn-primary">
-    View More on Instagram
+  <a href="https://www.instagram.com/greens_lounge/" target="_blank">
+    View More on Instagram →
   </a>
-
 </section>
 
-<!-- ================= FOOTER ================= -->
-<footer class="footer">
-  <p>© 2026 The Greens Lounge • Sixth Avenue, Tema</p>
-  <p>Created by <a href="https://scodegit.github.io/scode.git.io/" target="_blank" style="color:#1f8f6b;">SCode Developer</a></p>
+<footer class="site-footer">
+  <p>© <span id="year"></span> The Greens Lounge — Sixth Avenue, Tema</p>
+  <p>Designed by <a href="https://scodegit.github.io/scode.git.io/" target="_blank">SCode Studio</a></p>
 </footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
-
