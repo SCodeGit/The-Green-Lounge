@@ -1,35 +1,287 @@
-// SCROLL REVEAL
-document.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(entry => {
-      if(entry.isIntersecting) entry.target.classList.add("visible");
-    }),
-    { threshold: 0.15 }
-  );
-  document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-// LIGHTBOX
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const closeBtn = document.querySelector(".lightbox-close");
+<title>The Greens Lounge | Luxury Lounge & Nightlife in Tema</title>
+<meta name="description" content="The Greens Lounge, Sixth Avenue Tema — curated drinks, refined dining, music, and a premium nightlife experience.">
 
-document.querySelectorAll(".highlight-card img, .about-text-box img, .hero-img").forEach(img => {
-  img.addEventListener("click", () => {
-    lightboxImg.src = img.src;
-    lightbox.classList.add("active");
-    document.body.style.overflow = "hidden";
-  });
-});
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-closeBtn.addEventListener("click", () => {
-  lightbox.classList.remove("active");
-  document.body.style.overflow = "auto";
-});
+<!-- FAVICON -->
+<link rel="icon" type="image/jpg" href="images/logo.jpg">
 
-lightbox.addEventListener("click", e => {
-  if(e.target === lightbox){
-    lightbox.classList.remove("active");
-    document.body.style.overflow = "auto";
-  }
-});
+<style>
+:root{
+  --black:#000;
+  --dark:#0e0e0e;
+  --white:#fff;
+  --green:#1f8f6b;
+  --overlay:rgba(0,0,0,0.72);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:var(--black);
+  color:var(--white);
+}
+
+/* ================= HEADER ================= */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:var(--black);
+  border-bottom:2px solid var(--green);
+  padding:10px 0;
+  text-align:center;
+}
+
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:var(--white);
+}
+
+.brand img{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  border:2px solid var(--green);
+}
+
+.brand span{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;
+  font-weight:700;
+}
+
+/* ================= NAV ================= */
+#page-nav ul{
+  list-style:none;
+  margin:12px 0 0;
+  padding:0;
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  flex-wrap:wrap;
+}
+
+#page-nav a{
+  color:var(--white);
+  text-decoration:none;
+  font-weight:600;
+}
+
+#page-nav a:hover{
+  color:var(--green);
+}
+
+/* ================= HERO ================= */
+.hero{
+  background:
+    linear-gradient(var(--overlay),var(--overlay)),
+    url('images/hero.jpg') center/cover no-repeat;
+  text-align:center;
+  padding:120px 20px;
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;
+  margin-bottom:10px;
+}
+
+.hero p{
+  max-width:680px;
+  margin:auto;
+  color:#ddd;
+  font-size:1.05rem;
+}
+
+.hero .btn{
+  display:inline-block;
+  margin-top:26px;
+  padding:14px 34px;
+  background:var(--green);
+  color:#000;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* ================= SECTIONS ================= */
+.section{
+  padding:70px 5%;
+}
+
+.section-head{
+  text-align:center;
+  max-width:720px;
+  margin:0 auto 50px;
+}
+
+.section-head h2{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;
+}
+
+.section-head p{
+  color:#cfcfcf;
+}
+
+/* ================= CARDS ================= */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+
+.card{
+  border:2px solid var(--green);
+  border-radius:14px;
+  padding:28px 20px;
+  text-align:center;
+}
+
+.card h3{
+  color:var(--green);
+}
+
+/* ================= IMAGE FEATURE ================= */
+.feature-img{
+  width:180px;
+  border-radius:50%;
+  border:3px solid var(--green);
+  margin:25px auto;
+  display:block;
+}
+
+@media(max-width:600px){
+  .feature-img{width:130px}
+}
+
+/* ================= LOCATION ================= */
+.location{
+  background:var(--dark);
+}
+
+.map iframe{
+  width:100%;
+  height:360px;
+  border-radius:14px;
+  margin-top:40px;
+  border:none;
+}
+
+/* ================= FOOTER ================= */
+.site-footer{
+  text-align:center;
+  padding:50px 20px;
+  border-top:2px solid var(--green);
+  background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
+    url('images/about-bg.jpg') center/cover;
+}
+
+.site-footer a{
+  color:var(--green);
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <img src="images/logo.jpg" alt="The Greens Lounge Logo">
+    <span>The Greens Lounge</span>
+  </a>
+
+  <nav id="page-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="vibes.html">Vibes</a></li>
+      <li><a href="menu.html">Drinks & Tables</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Welcome to The Greens Lounge</h1>
+  <p>Curated drinks, elevated dining, and refined nightlife at Sixth Avenue, Tema.</p>
+  <a href="menu.html" class="btn">View Drinks & Reserve →</a>
+</section>
+
+<!-- ABOUT -->
+<section class="section">
+  <div class="section-head">
+    <h2>The Greens Experience</h2>
+    <p>A calm atmosphere by day, a vibrant destination by night.</p>
+  </div>
+
+  <img src="images/dining.jpg" class="feature-img" alt="The Greens Lounge">
+
+  <p style="max-width:720px;margin:auto;text-align:center;">
+    The Greens Lounge blends comfort, sound, and service into a refined social space.
+    From expertly crafted cocktails to curated music sessions, every detail is designed
+    to elevate your evening.
+  </p>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section class="section">
+  <div class="cards">
+    <article class="card">
+      <h3>Curated Drinks</h3>
+      <p>Signature cocktails, premium spirits, wines, and beers.</p>
+    </article>
+
+    <article class="card">
+      <h3>Music & Vibes</h3>
+      <p>DJ nights, Afrobeats, live performances, and themed evenings.</p>
+    </article>
+
+    <article class="card">
+      <h3>Dining</h3>
+      <p>Casual bites and grilled specialties to complement every night.</p>
+    </article>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="section location">
+  <div class="section-head">
+    <h2>Visit Us</h2>
+    <p>Sixth Avenue, Tema • Open daily • Closes at 1:00 AM</p>
+  </div>
+
+  <div class="map">
+    <iframe
+      src="https://www.google.com/maps?q=The%20Greens%20Lounge%20Sixth%20Avenue%20Tema&output=embed"
+      loading="lazy">
+    </iframe>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> The Greens Lounge — All rights reserved.</p>
+  <p>Designed by <a href="https://scodegit.github.io/scode.git.io/" target="_blank">SCode Studio</a></p>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
