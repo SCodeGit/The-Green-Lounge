@@ -20,197 +20,103 @@
   --white:#fff;
   --green:#1f8f6b;
   --overlay:rgba(0,0,0,0.72);
+  --transition: all 0.5s ease;
 }
 
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Poppins',sans-serif;color:var(--white);background:var(--black);overflow-x:hidden;}
+img{max-width:100%;display:block;border-radius:12px;transition:transform 0.4s ease,box-shadow 0.4s ease;}
+a{text-decoration:none;color:inherit;}
 
-body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:var(--black);
-  color:var(--white);
-}
-
-/* ================= HEADER ================= */
+/* ===== Header ===== */
 .site-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
+  position:sticky;top:0;z-index:1000;
   background:var(--black);
   border-bottom:2px solid var(--green);
   padding:10px 0;
   text-align:center;
+  opacity:0; transform:translateY(-20px); transition:var(--transition);
 }
+.brand{display:inline-flex;align-items:center;gap:12px;color:var(--white);}
+.brand img{width:56px;height:56px;border-radius:50%;border:2px solid var(--green);cursor:pointer;}
+.brand span{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;cursor:default;}
+#page-nav ul{list-style:none;margin:12px 0 0;padding:0;display:flex;justify-content:center;gap:22px;flex-wrap:wrap;}
+#page-nav a{color:var(--white);font-weight:600;transition:var(--transition);}
+#page-nav a:hover{color:var(--green);}
 
-.brand{
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-  color:var(--white);
-}
-
-.brand img{
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  border:2px solid var(--green);
-}
-
-.brand span{
-  font-family:'Playfair Display',serif;
-  font-size:1.3rem;
-  font-weight:700;
-}
-
-/* ================= NAV ================= */
-#page-nav ul{
-  list-style:none;
-  margin:12px 0 0;
-  padding:0;
-  display:flex;
-  justify-content:center;
-  gap:22px;
-  flex-wrap:wrap;
-}
-
-#page-nav a{
-  color:var(--white);
-  text-decoration:none;
-  font-weight:600;
-}
-
-#page-nav a:hover{
-  color:var(--green);
-}
-
-/* ================= HERO ================= */
+/* ===== Hero ===== */
 .hero{
-  background:
-    linear-gradient(var(--overlay),var(--overlay)),
-    url('images/vibes-hero.jpg') center/cover no-repeat;
-  text-align:center;
-  padding:120px 20px;
+  background:linear-gradient(var(--overlay),var(--overlay)),url('images/vibes-hero.jpg') center/cover no-repeat;
+  text-align:center; padding:120px 20px;
+  opacity:0; transform:translateY(20px); transition:var(--transition);
 }
+.hero h1{font-family:'Playfair Display',serif;font-size:2.5rem;margin-bottom:10px;}
+.hero p{max-width:640px;margin:auto;color:#ddd;font-size:1.05rem;}
 
-.hero h1{
-  font-family:'Playfair Display',serif;
-  font-size:2.5rem;
-}
+/* ===== Sections ===== */
+.section{padding:70px 5%;opacity:0;transform:translateY(20px);transition:var(--transition);}
+.section-head{text-align:center;max-width:720px;margin:0 auto 50px;}
+.section-head h2{font-family:'Playfair Display',serif;font-size:2rem;}
+.section-head p{color:#cfcfcf;}
 
-.hero p{
-  max-width:640px;
-  margin:auto;
-  color:#ddd;
-  font-size:1.05rem;
-}
-
-/* ================= SECTIONS ================= */
-.section{
-  padding:70px 5%;
-}
-
-.section-head{
-  text-align:center;
-  max-width:720px;
-  margin:0 auto 50px;
-}
-
-.section-head h2{
-  font-family:'Playfair Display',serif;
-  font-size:2rem;
-}
-
-.section-head p{
-  color:#cfcfcf;
-}
-
-/* ================= CARDS ================= */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
-}
-
+/* ===== Cards ===== */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;}
 .card{
-  border:2px solid var(--green);
-  border-radius:14px;
-  padding:28px 20px;
-  text-align:center;
+  border:2px solid var(--green);border-radius:14px;padding:28px 20px;text-align:center;
+  background:#0e0e0e;transition:transform 0.3s ease,box-shadow 0.3s ease,opacity 0.5s ease;
+  opacity:0; transform:translateY(20px);
 }
+.card img{width:100%;height:220px;object-fit:cover;border-radius:10px;margin-bottom:16px;}
+.card h3{color:var(--green);}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 35px rgba(31,143,107,0.45);}
+.card:hover img{transform:scale(1.05);box-shadow:0 15px 40px rgba(0,0,0,0.5);}
 
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  border-radius:10px;
-  margin-bottom:16px;
-}
-
-.card h3{
-  color:var(--green);
-}
-
-/* ================= FEATURE IMAGE ================= */
+/* ===== Feature Image ===== */
 .feature-img{
-  width:180px;
-  border-radius:50%;
-  border:3px solid var(--green);
-  margin:25px auto;
-  display:block;
+  width:180px;border-radius:50%;border:3px solid var(--green);margin:25px auto;display:block;
+  cursor:pointer;transition:transform 0.3s ease,box-shadow 0.3s ease;opacity:0;transform:translateY(20px);
 }
+.feature-img:hover{transform:scale(1.05);box-shadow:0 15px 40px rgba(0,0,0,0.5);}
 
-@media(max-width:600px){
-  .feature-img{width:130px}
-}
+/* ===== CTA ===== */
+.cta{background:var(--dark);text-align:center;padding:80px 20px;opacity:0;transform:translateY(20px);transition:var(--transition);}
+.cta a{display:inline-block;margin-top:20px;padding:14px 36px;background:var(--green);color:#000;border-radius:30px;text-decoration:none;font-weight:600;}
+.cta a:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(31,143,107,0.35);}
 
-/* ================= CTA ================= */
-.cta{
-  background:var(--dark);
-  text-align:center;
-  padding:80px 20px;
-}
-
-.cta a{
-  display:inline-block;
-  margin-top:20px;
-  padding:14px 36px;
-  background:var(--green);
-  color:#000;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:600;
-}
-
-/* ================= FOOTER ================= */
+/* ===== Footer ===== */
 .site-footer{
-  text-align:center;
-  padding:50px 20px;
-  border-top:2px solid var(--green);
-  background:
-    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
-    url('images/about-bg.jpg') center/cover;
+  text-align:center;padding:50px 20px;border-top:2px solid var(--green);
+  background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),url('images/about-bg.jpg') center/cover;
+  opacity:0; transform:translateY(20px); transition:var(--transition);
 }
+.site-footer a{color:var(--green);text-decoration:none;}
 
-.site-footer a{
-  color:var(--green);
-  text-decoration:none;
-}
+/* ===== Lightbox ===== */
+.lightbox{position: fixed;inset:0;background: rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;z-index:2000;opacity:0;pointer-events:none;transition: opacity 0.3s ease;}
+.lightbox.active{opacity:1;pointer-events:auto;}
+.lightbox img{max-width:92%;max-height:85%;border-radius:14px;box-shadow:0 30px 60px rgba(0,0,0,0.6);}
+.lightbox-close{position:absolute;top:24px;right:28px;font-size:2.2rem;background:none;border:none;color:#fff;cursor:pointer;font-weight:300;transition:opacity 0.2s ease;}
+.lightbox-close:hover{opacity:0.7;}
+
+/* ===== Scroll Reveal Helper Classes ===== */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.delay-1{transition-delay:0.15s;}
+.delay-2{transition-delay:0.3s;}
 </style>
 </head>
 
 <body>
 
-<header class="site-header">
+<header class="site-header reveal">
   <a class="brand" href="index.html">
     <img src="images/logo.jpg" alt="The Greens Lounge Logo">
     <span>The Greens Lounge</span>
   </a>
-
   <nav id="page-nav">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="vibes.html">Vibes</a></li>
+      <li><a href="vibes.html" class="active">Vibes</a></li>
       <li><a href="menu.html">Drinks & Tables</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -218,19 +124,19 @@ body{
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero reveal delay-1">
   <h1>The Vibe</h1>
   <p>Where sound, atmosphere, and energy meet refined nightlife.</p>
 </section>
 
 <!-- EXPERIENCE -->
-<section class="section">
+<section class="section reveal delay-1">
   <div class="section-head">
     <h2>The Greens Experience</h2>
     <p>A smooth transition from calm evenings to vibrant nights.</p>
   </div>
 
-  <img src="images/gallery-dj.jpg" class="feature-img" alt="Greens Lounge Vibes">
+  <img src="images/gallery-dj.jpg" class="feature-img reveal delay-2" alt="Greens Lounge Vibes">
 
   <p style="max-width:720px;margin:auto;text-align:center;">
     The Greens Lounge is defined by atmosphere. Open, spacious, and immersive,
@@ -240,21 +146,21 @@ body{
 </section>
 
 <!-- EVENTS -->
-<section class="section">
+<section class="section reveal delay-1">
   <div class="cards">
-    <article class="card">
+    <article class="card reveal delay-1">
       <img src="images/dj.jpg" alt="DJ Nights">
       <h3>DJ Nights</h3>
       <p>Afrobeats, Amapiano, Hip-Hop, and curated party classics.</p>
     </article>
 
-    <article class="card">
+    <article class="card reveal delay-2">
       <img src="images/live.jpg" alt="Live Performances">
       <h3>Live Performances</h3>
       <p>Guest artists and live sessions that elevate select nights.</p>
     </article>
 
-    <article class="card">
+    <article class="card reveal delay-1">
       <img src="images/themed.jpg" alt="Themed Nights">
       <h3>Themed Evenings</h3>
       <p>Carefully planned nights that keep the energy fresh and exciting.</p>
@@ -263,24 +169,24 @@ body{
 </section>
 
 <!-- GALLERY -->
-<section class="section">
+<section class="section reveal delay-1">
   <div class="section-head">
     <h2>Gallery</h2>
     <p>A visual glimpse into nights at The Greens Lounge.</p>
   </div>
 
   <div class="cards">
-    <article class="card">
+    <article class="card reveal delay-1">
       <img src="images/gallery-crowd.jpg" alt="Crowd moments">
       <p>High-energy nights & crowd moments</p>
     </article>
 
-    <article class="card">
+    <article class="card reveal delay-2">
       <img src="images/gallery-drinks.jpg" alt="Drinks">
       <p>Crafted cocktails & premium drinks</p>
     </article>
 
-    <article class="card">
+    <article class="card reveal delay-1">
       <img src="images/gallery-dj.jpg" alt="DJ sets">
       <p>DJ sets & live music sessions</p>
     </article>
@@ -288,29 +194,73 @@ body{
 </section>
 
 <!-- CTA -->
-<section class="cta">
+<section class="cta reveal delay-1">
   <h2>Follow the Vibe</h2>
   <a href="https://www.instagram.com/greens_lounge/" target="_blank">
     View More on Instagram →
   </a>
 </section>
 
-<footer class="site-footer">
+<footer class="site-footer reveal delay-2">
   <p>© <span id="year"></span> The Greens Lounge — Sixth Avenue, Tema</p>
-  <p>Designed by <a href="https://scodegit.github.io/scode.git.io/" target="_blank">SCode Studio</a></p>
+  <p>Designed by <a href="https://scodegit.github.io/scode.git.io/" target="_blank" class="dev-link">SCode Studio</a></p>
 </footer>
 
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-<!-- =====================
-     IMAGE LIGHTBOX
-===================== -->
+<!-- Lightbox -->
 <div id="lightbox" class="lightbox">
   <button class="lightbox-close" aria-label="Close image">&times;</button>
   <img id="lightbox-img" src="" alt="Expanded image">
 </div>
 
+<script>
+// Set Year
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Scroll Reveal
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.15});
+
+document.querySelectorAll('.reveal').forEach(el=>{
+  observer.observe(el);
+});
+
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.querySelector('.lightbox-close');
+
+document.querySelectorAll('img').forEach(img=>{
+  if(!img.classList.contains('brand')){
+    img.addEventListener('click',()=>{
+      lightboxImg.src=img.src;
+      lightbox.classList.add('active');
+      document.body.style.overflow='hidden';
+    });
+  }
+});
+closeBtn.addEventListener('click',()=>{
+  lightbox.classList.remove('active');
+  document.body.style.overflow='auto';
+});
+lightbox.addEventListener('click',e=>{
+  if(e.target===lightbox){
+    lightbox.classList.remove('active');
+    document.body.style.overflow='auto';
+  }
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape' && lightbox.classList.contains('active')){
+    lightbox.classList.remove('active');
+    document.body.style.overflow='auto';
+  }
+});
+</script>
+
 </body>
 </html>
-
