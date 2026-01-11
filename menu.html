@@ -20,209 +20,108 @@
   --white:#fff;
   --green:#1f8f6b;
   --overlay:rgba(0,0,0,0.72);
+  --transition: all 0.5s ease;
 }
 
-body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:var(--black);
-  color:var(--white);
-}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Poppins',sans-serif;color:var(--white);background:var(--black);overflow-x:hidden;}
+img{max-width:100%;display:block;border-radius:12px;transition:transform 0.4s ease,box-shadow 0.4s ease;}
+a{text-decoration:none;color:inherit;}
 
-/* ================= HEADER ================= */
+/* ===== Header ===== */
 .site-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
+  position:sticky;top:0;z-index:1000;
   background:var(--black);
   border-bottom:2px solid var(--green);
   padding:12px 0;
   text-align:center;
+  opacity:0; transform:translateY(-20px); transition:var(--transition);
 }
+.brand{display:inline-flex;align-items:center;gap:12px;color:var(--white);}
+.brand img{width:56px;height:56px;border-radius:50%;border:2px solid var(--green);cursor:pointer;}
+.brand span{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;cursor:default;}
+#page-nav ul{list-style:none;margin:12px 0 0;padding:0;display:flex;justify-content:center;gap:22px;flex-wrap:wrap;}
+#page-nav a{color:var(--white);font-weight:600;transition:var(--transition);}
+#page-nav a:hover, #page-nav a.active{color:var(--green);}
 
-.brand{
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-  color:var(--white);
-}
-
-.brand img{
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  border:2px solid var(--green);
-}
-
-.brand span{
-  font-family:'Playfair Display',serif;
-  font-size:1.3rem;
-  font-weight:700;
-}
-
-/* Nav */
-#page-nav ul{
-  list-style:none;
-  margin:12px 0 0;
-  padding:0;
-  display:flex;
-  justify-content:center;
-  gap:22px;
-  flex-wrap:wrap;
-}
-
-#page-nav a{
-  color:var(--white);
-  text-decoration:none;
-  font-weight:600;
-}
-
-#page-nav a:hover, #page-nav a.active{
-  color:var(--green);
-}
-
-/* ================= HERO ================= */
+/* ===== Hero ===== */
 .hero{
   position:relative;
-  background:
-    linear-gradient(var(--overlay), var(--overlay)),
-    url('images/menu-hero.jpg') center/cover no-repeat;
-  text-align:center;
-  padding:100px 20px;
+  background:linear-gradient(var(--overlay), var(--overlay)), url('images/menu-hero.jpg') center/cover no-repeat;
+  text-align:center; padding:100px 20px;
+  opacity:0; transform:translateY(20px); transition:var(--transition);
 }
-
 .hero-text-box{
   background: rgba(0,0,0,0.45);
   padding:25px 30px;
   border-radius:16px;
   max-width:700px;
   margin:auto;
+  opacity:0; transform:translateY(20px); transition:var(--transition);
 }
+.hero h1{font-family:'Playfair Display',serif;font-size:2.5rem;margin-bottom:12px;}
+.hero p{color:#ddd;font-size:1.05rem;}
 
-.hero h1{
-  font-family:'Playfair Display',serif;
-  font-size:2.5rem;
-  margin-bottom:12px;
-}
+/* ===== Sections ===== */
+.section{padding:70px 5%;opacity:0;transform:translateY(20px);transition:var(--transition);}
+.section h2{font-family:'Playfair Display',serif;font-size:2rem;text-align:center;margin-bottom:40px;}
+.section p{max-width:720px;margin:auto;line-height:1.6;color:#ccc;text-align:center;}
 
-.hero p{
-  color:#ddd;
-  font-size:1.05rem;
-}
-
-/* ================= SECTIONS ================= */
-.section{
-  padding:70px 5%;
-}
-
-.section h2{
-  font-family:'Playfair Display',serif;
-  font-size:2rem;
-  text-align:center;
-  margin-bottom:40px;
-}
-
-.section p{
-  max-width:720px;
-  margin:auto;
-  line-height:1.6;
-  color:#ccc;
-  text-align:center;
-}
-
-/* ================= HIGHLIGHT CARDS ================= */
+/* ===== Highlight Cards ===== */
 .highlights{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:24px;
-  margin-top:40px;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-top:40px;
 }
-
 .highlight-card{
-  background:var(--dark);
-  border-radius:16px;
-  padding:20px;
-  width:280px;
-  text-align:center;
-  transition:transform 0.3s ease, box-shadow 0.3s ease;
+  background:var(--dark);border-radius:16px;padding:20px;width:280px;text-align:center;
+  transition:transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+  opacity:0; transform:translateY(20px);
 }
+.highlight-card img{width:100%;border-radius:12px;margin-bottom:16px;cursor:pointer;}
+.highlight-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:12px;color:var(--green);}
+.highlight-card p{font-size:0.95rem;line-height:1.5;color:#ccc;}
+.highlight-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(31,143,107,0.35);}
+.highlight-card:hover img{transform:scale(1.05);box-shadow:0 12px 28px rgba(0,0,0,0.5);}
 
-.highlight-card img{
-  width:100%;
-  border-radius:12px;
-  margin-bottom:16px;
-}
-
-.highlight-card h3{
-  font-family:'Playfair Display',serif;
-  font-size:1.3rem;
-  margin-bottom:12px;
-  color:var(--green);
-}
-
-.highlight-card p{
-  font-size:0.95rem;
-  line-height:1.5;
-  color:#ccc;
-}
-
-.highlight-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 28px rgba(31,143,107,0.35);
-}
-
-/* WhatsApp Button */
+/* ===== WhatsApp Button ===== */
 .btn-primary{
-  display:inline-block;
-  padding:14px 36px;
-  background:linear-gradient(135deg,var(--green),#0c5f47);
-  color:#fff;
-  border-radius:40px;
-  font-weight:600;
-  text-decoration:none;
-  transition:transform 0.3s ease, box-shadow 0.3s ease;
+  display:inline-block;padding:14px 36px;background:linear-gradient(135deg,var(--green),#0c5f47);
+  color:#fff;border-radius:40px;font-weight:600;text-decoration:none;transition:transform 0.3s ease, box-shadow 0.3s ease;
 }
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(31,143,107,0.35);}
 
-.btn-primary:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 30px rgba(31,143,107,0.35);
-}
+/* ===== Map ===== */
+iframe{width:100%;height:320px;margin-top:40px;border-radius:14px;}
 
-/* Map */
-iframe{
-  width:100%;
-  height:320px;
-  margin-top:40px;
-  border-radius:14px;
-}
-
-/* Footer */
+/* ===== Footer ===== */
 .site-footer{
-  text-align:center;
-  padding:50px 20px;
-  border-top:2px solid var(--green);
-  background:
-    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
-    url('images/about-bg.jpg') center/cover;
+  text-align:center;padding:50px 20px;border-top:2px solid var(--green);
+  background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),url('images/about-bg.jpg') center/cover;
+  opacity:0; transform:translateY(20px); transition:var(--transition);
 }
+.site-footer a{color:var(--green);text-decoration:none;}
 
-.site-footer a{
-  color:var(--green);
-  text-decoration:none;
-}
+/* ===== Lightbox ===== */
+.lightbox{position: fixed;inset:0;background: rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;z-index:2000;opacity:0;pointer-events:none;transition: opacity 0.3s ease;}
+.lightbox.active{opacity:1;pointer-events:auto;}
+.lightbox img{max-width:92%;max-height:85%;border-radius:14px;box-shadow:0 30px 60px rgba(0,0,0,0.6);}
+.lightbox-close{position:absolute;top:24px;right:28px;font-size:2.2rem;background:none;border:none;color:#fff;cursor:pointer;font-weight:300;transition:opacity 0.2s ease;}
+.lightbox-close:hover{opacity:0.7;}
+
+/* Scroll Reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.delay-1{transition-delay:0.15s;}
+.delay-2{transition-delay:0.3s;}
 </style>
 </head>
 
 <body>
 
-<header class="site-header">
+<header class="site-header reveal">
   <a href="index.html" class="brand">
     <img src="images/logo.jpg" alt="The Greens Lounge Logo">
     <span>The Greens Lounge</span>
   </a>
-
   <nav id="page-nav">
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -234,32 +133,32 @@ iframe{
 </header>
 
 <!-- Hero -->
-<section class="hero">
-  <div class="hero-text-box">
+<section class="hero reveal delay-1">
+  <div class="hero-text-box reveal delay-2">
     <h1>Drinks & Reservations</h1>
     <p>Carefully curated drinks, refined service, and seamless reservations — everything designed for an unforgettable Greens experience.</p>
   </div>
 </section>
 
 <!-- Drinks Menu -->
-<section class="section">
+<section class="section reveal delay-1">
   <h2>Our Drinks Menu</h2>
   <p>At The Greens Lounge, our bar is an experience of its own. Each drink is prepared with precision, creativity, and premium ingredients — crafted to complement the ambience and elevate every moment.</p>
 
   <div class="highlights">
-    <div class="highlight-card">
+    <div class="highlight-card reveal delay-1">
       <img src="images/cocktail.jpg" alt="Signature Cocktails">
       <h3>Signature Cocktails</h3>
       <p>Handcrafted cocktails inspired by bold flavors and smooth finishes — including our house favorites like the <em>Tema Sunset</em> and <em>Greens Martini</em>.</p>
     </div>
 
-    <div class="highlight-card">
+    <div class="highlight-card reveal delay-2">
       <img src="images/wine.jpg" alt="Premium Wines">
       <h3>Premium Wines</h3>
       <p>A refined selection of red, white, and sparkling wines, carefully chosen to suit both casual sipping and special celebrations.</p>
     </div>
 
-    <div class="highlight-card">
+    <div class="highlight-card reveal delay-1">
       <img src="images/beer.jpg" alt="Beer & Spirits">
       <h3>Beer & Spirits</h3>
       <p>From local favorites to international spirits, we offer a wide range of options to satisfy every preference.</p>
@@ -268,7 +167,7 @@ iframe{
 </section>
 
 <!-- Reservations -->
-<section class="section">
+<section class="section reveal delay-1">
   <h2>Reserve a Table</h2>
   <p>Planning a night out, celebration, or private gathering? Secure your table effortlessly and enjoy priority service in one of Tema’s most refined lounge environments.</p>
 
@@ -292,22 +191,63 @@ iframe{
 </section>
 
 <!-- Footer -->
-<footer class="site-footer">
+<footer class="site-footer reveal delay-2">
   <p>© <span id="year"></span> The Greens Lounge • Sixth Avenue, Tema</p>
-  <p>Designed by <a href="https://scodegit.github.io/scode.git.io/" target="_blank">SCode Studio</a></p>
+  <p>Designed by <a href="https://scodegit.github.io/scode.git.io/" target="_blank" class="dev-link">SCode Studio</a></p>
 </footer>
 
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-<!-- =====================
-     IMAGE LIGHTBOX
-===================== -->
+<!-- Lightbox -->
 <div id="lightbox" class="lightbox">
   <button class="lightbox-close" aria-label="Close image">&times;</button>
   <img id="lightbox-img" src="" alt="Expanded image">
 </div>
 
+<script>
+// Set Year
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Scroll Reveal
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.querySelector('.lightbox-close');
+
+document.querySelectorAll('img').forEach(img=>{
+  if(!img.classList.contains('brand')){
+    img.addEventListener('click',()=>{
+      lightboxImg.src=img.src;
+      lightbox.classList.add('active');
+      document.body.style.overflow='hidden';
+    });
+  }
+});
+closeBtn.addEventListener('click',()=>{
+  lightbox.classList.remove('active');
+  document.body.style.overflow='auto';
+});
+lightbox.addEventListener('click',e=>{
+  if(e.target===lightbox){
+    lightbox.classList.remove('active');
+    document.body.style.overflow='auto';
+  }
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape' && lightbox.classList.contains('active')){
+    lightbox.classList.remove('active');
+    document.body.style.overflow='auto';
+  }
+});
+</script>
+
 </body>
 </html>
-
