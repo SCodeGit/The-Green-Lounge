@@ -208,36 +208,7 @@ document.querySelectorAll('.reveal').forEach(el=>{
   observer.observe(el);
 });
 
-// Lightbox
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const closeBtn = document.querySelector('.lightbox-close');
 
-document.querySelectorAll('img').forEach(img=>{
-  if(!img.classList.contains('brand')){
-    img.addEventListener('click',()=>{
-      lightboxImg.src=img.src;
-      lightbox.classList.add('active');
-      document.body.style.overflow='hidden';
-    });
-  }
-});
-closeBtn.addEventListener('click',()=>{
-  lightbox.classList.remove('active');
-  document.body.style.overflow='auto';
-});
-lightbox.addEventListener('click',e=>{
-  if(e.target===lightbox){
-    lightbox.classList.remove('active');
-    document.body.style.overflow='auto';
-  }
-});
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape' && lightbox.classList.contains('active')){
-    lightbox.classList.remove('active');
-    document.body.style.overflow='auto';
-  }
-});
 </script>
 
 </body>
