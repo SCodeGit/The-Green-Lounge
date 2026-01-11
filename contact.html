@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <!-- Favicon -->
-<link rel="icon" type="image/png" href="images/logo.jpg">
+<link rel="icon" type="image/jpg" href="images/logo.jpg">
 
 <style>
 :root{
@@ -133,11 +133,11 @@ iframe{width:100%;height:360px;margin-top:30px;border-radius:12px;}
   <p>Our team is ready to assist with reservations, event inquiries, and general questions.</p>
   <ul class="location-list">
     <li>Address: Sixth Ave, Tema, Greater Accra Region, Ghana</li>
-    <li>Phone: +233 54 030 9726</li>
+    <li>Phone: +233 54 461 6152</li>
     <li>Hours: Open daily, 12 PM – 1 AM</li>
   </ul>
   <div style="text-align:center; margin-top:20px;">
-    <a class="btn-primary" href="https://wa.me/233540309726?text=Hello%20The%20Greens%20Lounge,%20I%20want%20to%20make%20an%20inquiry.">Chat via WhatsApp</a>
+    <a class="btn-primary" href="https://wa.me/233544616152?text=Hello%20The%20Greens%20Lounge,%20I%20want%20to%20make%20an%20inquiry.">Chat via WhatsApp</a>
   </div>
 </section>
 
@@ -166,11 +166,61 @@ iframe{width:100%;height:360px;margin-top:30px;border-radius:12px;}
 <!-- Footer -->
 <footer class="site-footer reveal delay-2">
   <p>© <span id="year"></span> The Greens Lounge • Sixth Avenue, Tema</p>
-  <p>Designed by <a href="https://scodegit.github.io/scode.git.io/" target="_blank">SCode Groups</a></p>
+  <p>Designed by <a href="https://scodegit.github.io/scode.git.io/" target="_blank">SCode Studio</a></p>
 </footer>
 
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <button class="lightbox-close" aria-label="Close image">&times;</button>
+  <img id="lightbox-img" src="" alt="Expanded image">
+</div>
+
+<script>
+// Set Year
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Scroll Reveal
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.querySelector('.lightbox-close');
+
+document.querySelectorAll('img').forEach(img=>{
+  if(!img.classList.contains('brand')){
+    img.addEventListener('click',()=>{
+      lightboxImg.src=img.src;
+      lightbox.classList.add('active');
+      document.body.style.overflow='hidden';
+    });
+  }
+});
+closeBtn.addEventListener('click',()=>{
+  lightbox.classList.remove('active');
+  document.body.style.overflow='auto';
+});
+lightbox.addEventListener('click',e=>{
+  if(e.target===lightbox){
+    lightbox.classList.remove('active');
+    document.body.style.overflow='auto';
+  }
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape' && lightbox.classList.contains('active')){
+    lightbox.classList.remove('active');
+    document.body.style.overflow='auto';
+  }
+});
 </script>
 
 </body>
 </html>
-
