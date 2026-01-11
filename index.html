@@ -208,8 +208,219 @@ document.querySelectorAll('.reveal').forEach(el=>{
   observer.observe(el);
 });
 
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.querySelector('.lightbox-close');
 
+document.querySelectorAll('img').forEach(img=>{
+  if(!img.classList.contains('brand')){
+    img.addEventListener('click',()=>{
+      lightboxImg.src=img.src;
+      lightbox.classList.add('active');
+      document.body.style.overflow='hidden';
+    });
+  }
+});
+closeBtn.addEventListener('click',()=>{
+  lightbox.classList.remove('active');
+  document.body.style.overflow='auto';
+});
+lightbox.addEventListener('click',e=>{
+  if(e.target===lightbox){
+    lightbox.classList.remove('active');
+    document.body.style.overflow='auto';
+  }
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape' && lightbox.classList.contains('active')){
+    lightbox.classList.remove('active');
+    document.body.style.overflow='auto';
+  }
+});
 </script>
 
+<!-- ===============================
+     COOKIE NOTICE + PRIVACY POLICY
+================================ -->
+
+<style>
+/* ===== Cookie Banner ===== */
+.cookie-banner{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  max-width:920px;
+  width:92%;
+  background:#0e0e0e;
+  color:#fff;
+  padding:18px 22px;
+  border-radius:14px;
+  box-shadow:0 12px 40px rgba(0,0,0,.45);
+  display:none;
+  z-index:9999;
+}
+
+.cookie-banner p{
+  margin:0 0 12px;
+  font-size:0.95rem;
+  line-height:1.5;
+  color:#ddd;
+}
+
+.cookie-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.cookie-actions button,
+.cookie-actions a{
+  border:none;
+  padding:10px 18px;
+  border-radius:30px;
+  font-weight:600;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+.btn-accept{
+  background:#1f8f6b;
+  color:#fff;
+}
+
+.btn-decline{
+  background:#333;
+  color:#fff;
+}
+
+.btn-policy{
+  background:transparent;
+  color:#1f8f6b;
+  border:1px solid #1f8f6b;
+}
+
+/* ===== Privacy Modal ===== */
+.privacy-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:10000;
+}
+
+.privacy-box{
+  background:#000;
+  color:#ddd;
+  max-width:700px;
+  width:92%;
+  max-height:80vh;
+  overflow:auto;
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+}
+
+.privacy-box h2{
+  color:#fff;
+  margin-top:0;
+}
+
+.privacy-box p{
+  line-height:1.6;
+  font-size:0.95rem;
+}
+
+.close-privacy{
+  position:absolute;
+  top:16px;
+  right:22px;
+  font-size:1.8rem;
+  color:#fff;
+  cursor:pointer;
+}
+</style>
+
+<!-- ===== Cookie Banner ===== -->
+<div id="cookieBanner" class="cookie-banner">
+  <p>
+    We use essential cookies to ensure this website works properly.
+    By continuing, you agree to our use of cookies.
+  </p>
+  <div class="cookie-actions">
+    <button class="btn-accept" onclick="acceptCookies()">Accept</button>
+    <button class="btn-decline" onclick="declineCookies()">Decline</button>
+    <a class="btn-policy" onclick="openPrivacy()">Privacy Policy</a>
+  </div>
+</div>
+
+<!-- ===== Privacy Policy Modal ===== -->
+<div id="privacyModal" class="privacy-modal">
+  <div class="privacy-box">
+    <span class="close-privacy" onclick="closePrivacy()">&times;</span>
+
+    <h2>Privacy Policy</h2>
+
+    <p>
+      The Greens Lounge respects your privacy. This website is a static
+      informational site and does not collect personal data automatically.
+    </p>
+
+    <p>
+      We do not use tracking cookies, analytics tools, or advertising pixels.
+      Any information you share with us via WhatsApp, phone, or direct contact
+      is used solely to respond to your inquiry.
+    </p>
+
+    <p>
+      Essential cookies may be used by your browser to ensure proper site
+      functionality. These cookies do not identify you personally.
+    </p>
+
+    <p>
+      By using this website, you agree to this policy. If you have any questions,
+      please contact us directly.
+    </p>
+  </div>
+</div>
+
+<script>
+/* ===== Cookie Logic ===== */
+const banner = document.getElementById("cookieBanner");
+const modal = document.getElementById("privacyModal");
+
+if(!localStorage.getItem("cookieConsent")){
+  banner.style.display = "block";
+}
+
+function acceptCookies(){
+  localStorage.setItem("cookieConsent","accepted");
+  banner.style.display = "none";
+}
+
+function declineCookies(){
+  localStorage.setItem("cookieConsent","declined");
+  banner.style.display = "none";
+}
+
+/* ===== Privacy Modal ===== */
+function openPrivacy(){
+  modal.style.display = "flex";
+}
+
+function closePrivacy(){
+  modal.style.display = "none";
+}
+
+/* Close modal on outside click */
+modal.addEventListener("click", e=>{
+  if(e.target === modal){
+    closePrivacy();
+  }
+});
+</script>
 </body>
 </html>
