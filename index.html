@@ -13,194 +13,13 @@
 <!-- FAVICON -->
 <link rel="icon" type="image/jpg" href="images/logo.jpg">
 
-<style>
-:root{
-  --black:#000;
-  --dark:#0e0e0e;
-  --white:#fff;
-  --green:#1f8f6b;
-  --overlay:rgba(0,0,0,0.72);
-}
-
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:var(--black);
-  color:var(--white);
-}
-
-/* ================= HEADER ================= */
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:var(--black);
-  border-bottom:2px solid var(--green);
-  padding:10px 0;
-  text-align:center;
-}
-
-.brand{
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-  color:var(--white);
-}
-
-.brand img{
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  border:2px solid var(--green);
-}
-
-.brand span{
-  font-family:'Playfair Display',serif;
-  font-size:1.3rem;
-  font-weight:700;
-}
-
-/* ================= NAV ================= */
-#page-nav ul{
-  list-style:none;
-  margin:12px 0 0;
-  padding:0;
-  display:flex;
-  justify-content:center;
-  gap:22px;
-  flex-wrap:wrap;
-}
-
-#page-nav a{
-  color:var(--white);
-  text-decoration:none;
-  font-weight:600;
-}
-
-#page-nav a:hover{
-  color:var(--green);
-}
-
-/* ================= HERO ================= */
-.hero{
-  background:
-    linear-gradient(var(--overlay),var(--overlay)),
-    url('images/hero.jpg') center/cover no-repeat;
-  text-align:center;
-  padding:120px 20px;
-}
-
-.hero h1{
-  font-family:'Playfair Display',serif;
-  font-size:2.5rem;
-  margin-bottom:10px;
-}
-
-.hero p{
-  max-width:680px;
-  margin:auto;
-  color:#ddd;
-  font-size:1.05rem;
-}
-
-.hero .btn{
-  display:inline-block;
-  margin-top:26px;
-  padding:14px 34px;
-  background:var(--green);
-  color:#000;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:600;
-}
-
-/* ================= SECTIONS ================= */
-.section{
-  padding:70px 5%;
-}
-
-.section-head{
-  text-align:center;
-  max-width:720px;
-  margin:0 auto 50px;
-}
-
-.section-head h2{
-  font-family:'Playfair Display',serif;
-  font-size:2rem;
-}
-
-.section-head p{
-  color:#cfcfcf;
-}
-
-/* ================= CARDS ================= */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
-}
-
-.card{
-  border:2px solid var(--green);
-  border-radius:14px;
-  padding:28px 20px;
-  text-align:center;
-}
-
-.card h3{
-  color:var(--green);
-}
-
-/* ================= IMAGE FEATURE ================= */
-.feature-img{
-  width:180px;
-  border-radius:50%;
-  border:3px solid var(--green);
-  margin:25px auto;
-  display:block;
-}
-
-@media(max-width:600px){
-  .feature-img{width:130px}
-}
-
-/* ================= LOCATION ================= */
-.location{
-  background:var(--dark);
-}
-
-.map iframe{
-  width:100%;
-  height:360px;
-  border-radius:14px;
-  margin-top:40px;
-  border:none;
-}
-
-/* ================= FOOTER ================= */
-.site-footer{
-  text-align:center;
-  padding:50px 20px;
-  border-top:2px solid var(--green);
-  background:
-    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
-    url('images/about-bg.jpg') center/cover;
-}
-
-.site-footer a{
-  color:var(--green);
-  text-decoration:none;
-}
-</style>
+<!-- CUSTOM CSS -->
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<header class="site-header">
+<header class="site-header fade-in fade-down">
   <a class="brand" href="index.html">
     <img src="images/logo.jpg" alt="The Greens Lounge Logo">
     <span>The Greens Lounge</span>
@@ -208,31 +27,31 @@ body{
 
   <nav id="page-nav">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="vibes.html">Vibes</a></li>
-      <li><a href="menu.html">Drinks & Tables</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html" class="fade-in fade-down">Home</a></li>
+      <li><a href="vibes.html" class="fade-in fade-down">Vibes</a></li>
+      <li><a href="menu.html" class="fade-in fade-down">Drinks & Tables</a></li>
+      <li><a href="contact.html" class="fade-in fade-down">Contact</a></li>
     </ul>
   </nav>
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero fade-in fade-up">
   <h1>Welcome to The Greens Lounge</h1>
   <p>Curated drinks, elevated dining, and refined nightlife at Sixth Avenue, Tema.</p>
-  <a href="menu.html" class="btn">View Drinks & Reserve →</a>
+  <a href="menu.html" class="btn fade-in fade-up">View Drinks & Reserve →</a>
 </section>
 
 <!-- ABOUT -->
-<section class="section">
-  <div class="section-head">
+<section class="section fade-in fade-up">
+  <div class="section-head fade-in fade-up">
     <h2>The Greens Experience</h2>
     <p>A calm atmosphere by day, a vibrant destination by night.</p>
   </div>
 
-  <img src="images/dining.jpg" class="feature-img" alt="The Greens Lounge">
+  <img src="images/dining.jpg" class="feature-img fade-in fade-up" alt="The Greens Lounge">
 
-  <p style="max-width:720px;margin:auto;text-align:center;">
+  <p class="fade-in fade-up" style="max-width:720px;margin:auto;text-align:center;">
     The Greens Lounge blends comfort, sound, and service into a refined social space.
     From expertly crafted cocktails to curated music sessions, every detail is designed
     to elevate your evening.
@@ -240,25 +59,25 @@ body{
 </section>
 
 <!-- HIGHLIGHTS -->
-<section class="section">
+<section class="section fade-in fade-up">
   <div class="cards" style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center;">
     
     <!-- Curated Drinks -->
-    <article class="card" style="background:#0e0e0e; border-radius:16px; padding:20px; text-align:center; width:280px;">
+    <article class="card fade-in fade-up" style="background:#0e0e0e; border-radius:16px; padding:20px; text-align:center; width:280px;">
       <img src="images/drinks.jpg" alt="Curated Drinks" style="width:100%; border-radius:12px; margin-bottom:16px;">
       <h3 style="color:#1f8f6b; font-family:'Playfair Display',serif;">Curated Drinks</h3>
       <p style="color:#ccc;">Signature cocktails, premium spirits, wines, and beers.</p>
     </article>
 
     <!-- Music & Vibes -->
-    <article class="card" style="background:#0e0e0e; border-radius:16px; padding:20px; text-align:center; width:280px;">
+    <article class="card fade-in fade-up" style="background:#0e0e0e; border-radius:16px; padding:20px; text-align:center; width:280px;">
       <img src="images/music.jpg" alt="Music & Vibes" style="width:100%; border-radius:12px; margin-bottom:16px;">
       <h3 style="color:#1f8f6b; font-family:'Playfair Display',serif;">Music & Vibes</h3>
       <p style="color:#ccc;">DJ nights, Afrobeats, live performances, and themed evenings.</p>
     </article>
 
     <!-- Dining -->
-    <article class="card" style="background:#0e0e0e; border-radius:16px; padding:20px; text-align:center; width:280px;">
+    <article class="card fade-in fade-up" style="background:#0e0e0e; border-radius:16px; padding:20px; text-align:center; width:280px;">
       <img src="images/dining.jpg" alt="Dining Experience" style="width:100%; border-radius:12px; margin-bottom:16px;">
       <h3 style="color:#1f8f6b; font-family:'Playfair Display',serif;">Dining</h3>
       <p style="color:#ccc;">Casual bites and grilled specialties to complement every night.</p>
@@ -267,15 +86,14 @@ body{
   </div>
 </section>
 
-
 <!-- LOCATION -->
-<section class="section location">
-  <div class="section-head">
+<section class="section location fade-in fade-up">
+  <div class="section-head fade-in fade-up">
     <h2>Visit Us</h2>
     <p>Sixth Avenue, Tema • Open daily • Closes at 1:00 AM</p>
   </div>
 
-  <div class="map">
+  <div class="map fade-in fade-up">
     <iframe
       src="https://www.google.com/maps?q=The%20Greens%20Lounge%20Sixth%20Avenue%20Tema&output=embed"
       loading="lazy">
@@ -283,21 +101,22 @@ body{
   </div>
 </section>
 
-<footer class="site-footer">
+<footer class="site-footer fade-in fade-up">
   <p>© <span id="year"></span> The Greens Lounge — All rights reserved.</p>
   <p>Designed by <a href="https://scodegit.github.io/scode.git.io/" target="_blank">SCode Studio</a></p>
 </footer>
 
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-<!-- =====================
-     IMAGE LIGHTBOX
-===================== -->
+<!-- IMAGE LIGHTBOX -->
 <div id="lightbox" class="lightbox">
   <button class="lightbox-close" aria-label="Close image">&times;</button>
   <img id="lightbox-img" src="" alt="Expanded image">
 </div>
+
+<!-- SCRIPTS -->
+<script src="js/main.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
